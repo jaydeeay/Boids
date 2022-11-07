@@ -19,7 +19,7 @@ public class BoidManager : MonoBehaviour
 
         for (int i = 0; i < spawnBoids; i++)
         {
-            SpawnBoid(boidPrefab.gameObject, 0);
+            SpawnBoid(boidPrefab.gameObject);
         }
     }
 
@@ -32,7 +32,7 @@ public class BoidManager : MonoBehaviour
         }
     }
 
-    private void SpawnBoid(GameObject prefab, int swarmIndex)
+    private void SpawnBoid(GameObject prefab)
     {
         var boidInstance = Instantiate(prefab);
         boidInstance.transform.localPosition += new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));

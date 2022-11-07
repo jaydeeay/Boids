@@ -29,15 +29,13 @@ public class Boid : MonoBehaviour
                 separationCount++;
             }
 
-            if (distance < config.LocalAreaRadius && boid.config.SwarmIndex == this.config.SwarmIndex)
+            if (distance < config.LocalAreaRadius)
             {
                 alignmentDirection += boid.transform.forward;
                 alignmentCount++;
 
                 cohesionDirection += boid.transform.position - transform.position;
                 cohesionCount++;
-
-
             }
         }
 
