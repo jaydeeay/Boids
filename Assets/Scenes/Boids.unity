@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boidPrefab: {fileID: -6445406378217193639, guid: 5bb1e127a3cec564b81b5ace0633555e, type: 3}
-  spawnBoids: 100
+  spawnBoids: 500
+  config: {fileID: 11400000, guid: a71e6a83ea95edf4387f4f5fa4b749fa, type: 2}
 --- !u!4 &75747713
 Transform:
   m_ObjectHideFlags: 0

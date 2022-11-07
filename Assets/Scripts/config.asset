@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 684b94a90b6d85e45ab543d555af2657, type: 3}
-  m_Name: new config
+  m_Name: config
   m_EditorClassIdentifier: 
   SwarmIndex: 0
   NoClumpingRadius: 5
