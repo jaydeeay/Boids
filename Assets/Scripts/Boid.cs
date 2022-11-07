@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour
 {
-    [SerializeField]
-    public int SwarmIndex;
-    [SerializeField]
-    public float NoClumpingRadius = 5f;
-    [SerializeField]
-    public float LocalAreaRadius = 5f;
-    [SerializeField]
-    public float Speed = 10f;
-    [SerializeField]
-    public float SteeringSpeed = 100f;
-
+    public BoidConfig config;
     public void SimulateMovement(List<Boid> other, float time)
     {
         var steering = Vector3.zero;
@@ -33,13 +23,13 @@ public class Boid : MonoBehaviour
 
             var distance = Vector3.Distance(boid.transform.position, this.transform.position);
 
-            if (distance < NoClumpingRadius)
+            if (distance < config.NoClumpingRadius)
             {
                 separationDirection += boid.transform.position - transform.position;
                 separationCount++;
             }
 
-            if (distance < LocalAreaRadius && boid.SwarmIndex == this.SwarmIndex)
+            if (distance < config.LocalAreaRadius && boid.config.SwarmIndex == this.config.SwarmIndex)
             {
                 alignmentDirection += boid.transform.forward;
                 alignmentCount++;
@@ -71,9 +61,9 @@ public class Boid : MonoBehaviour
 
 
         if (steering != Vector3.zero)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(steering), SteeringSpeed * time);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(steering), config.SteeringSpeed * time);
 
-        transform.position += transform.TransformDirection(new Vector3(0, 0, Speed)) * time;
+        transform.position += transform.TransformDirection(new Vector3(0, 0, config.Speed)) * time;
 
     }
 

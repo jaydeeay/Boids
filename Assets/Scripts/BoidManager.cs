@@ -5,9 +5,11 @@ using UnityEngine;
 public class BoidManager : MonoBehaviour
 {
 
-    public Boid boidPrefab;
+    [SerializeField]private Boid boidPrefab;
 
-    public int spawnBoids = 50;
+    [SerializeField]private int spawnBoids = 50;
+
+    [SerializeField] BoidConfig config;
 
     private List<Boid> _boids;
 
@@ -35,6 +37,7 @@ public class BoidManager : MonoBehaviour
         var boidInstance = Instantiate(prefab);
         boidInstance.transform.localPosition += new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
         var boidController = boidInstance.GetComponent<Boid>();
+        boidController.config = config;
 
 
         _boids.Add(boidController);
